@@ -1,0 +1,152 @@
+html body{
+    min-height: 95vh;
+    min-width: 95vw;
+    text-align: center;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: "Press Start 2P", system-ui;
+}
+
+@media (max-width: 480px) {
+   body > h1 {
+    font-size: 16px;
+   }
+   body > p {
+    font-size: 12px;
+   }
+}
+
+main {
+    min-width: 80vw;
+    min-height: 80vh;
+    background-color: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+    border-radius: 8px;
+}
+
+main > * {
+    min-width: 60vw;
+    margin: 20px auto;
+    padding: 16px 18px;
+    gap: 30px;
+    flex-wrap: wrap;
+    border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+    main > * {
+        margin: 10px auto;
+        padding: 8px 12px;
+        gap: 15px;
+        flex-wrap: wrap;
+        border-radius: 8px;
+    }
+}
+
+#scores {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+#scores > * {
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1 1 0px;
+    background-color: whitesmoke;
+}
+
+@media (max-width: 480px) {
+    #scores > * {
+        font-size: 10px;
+    }
+}
+
+#display-selections {
+    min-height: 35vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+    #display-selections  {
+        display: flex;
+        align-items: self-start;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0px;
+    }
+}
+
+#display-selections > * {
+    flex: 1 1 0px;
+    font-size: 24px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #display-selections > * {
+        font-size: 10px;
+        margin: 0;
+        padding: 2px 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex: 1 1 0px;
+        gap: 65px
+    }
+}
+
+.vs, #player-selection, #computer-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: 800;
+    align-self: center;
+    flex-grow: 3;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0px 0px 8px red;
+}
+
+@media (max-width: 480px) {
+    .vs, #player-selection, #computer-selection {
+        font-size: 32px;
+        font-weight: 200;
+        align-self: center;
+    }
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+}
+
+#buttons > * {
+    padding: 8px 16px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: none;
+    font-family: inherit;
+}
+
+#buttons > *:active {
+    font-size: 19px;
+    background-color: gray;
+}

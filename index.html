@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="index.js">
-        
-    </script>
+    <h1>Play Rock Paper Scissors</h1>
+    <p>First to score 5 points wins!</p>
+    <main>
+        <div id="scores">
+           <div>
+              <p>Your Score</p>
+              <p id="player-score"></p>
+           </div>
+           <div>
+              <p>Computer Score</p>
+              <p id="computer-score"></p>
+           </div>
+        </div>
+        <div id="display-selections">
+           <div>
+             <p>Your selection</p>
+             <p id="player-selection"></p>
+           </div>
+           <div class="vs">
+             <p class="vs">VS</p>
+           </div>
+           <div>
+             <p>Computer Selection</p>
+             <p id="computer-selection"></p>
+           </div>
+        </div>
+        <div id="buttons">
+            <button id="🗿">🗿<br>Rock</button>
+            <button id="📃">📃<br>Paper</button>
+            <button id="✂️">✂️<br>Scissors</button>
+        </div>
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>

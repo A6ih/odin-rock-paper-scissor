@@ -1,69 +1,86 @@
-/*Make a Rock-Paper-Scissor game that takes input
-from player and matches it againt random computer
-generated output, the game last 5 rounds and is
-played in console*/
 //Define choices and store it in a variable array
-const choices = ["rock", "paper", "scissors"]
+const defaultDomState = document.body.innerHTML;
+const choices = ["🗿", "📃", "✂️"]
+const displayPlayerScore = document.querySelector("#player-score")
+const displayPlayerSelection = document.querySelector("#player-selection")
+const displayComputerScore = document.querySelector("#computer-score")
+const displayComputerSelection = document.querySelector("#computer-selection")
+const buttons = document.querySelector("#buttons");
+let humanChoice = "";
+
+buttons.addEventListener ("click", (event) => {
+    let target = event.target;
+    switch(target.id) {
+        case "#🗿":
+        break;
+        case "#📃":
+        break;
+        case "#✂️":
+        break;
+    }
+    if(target.id === "buttons") {
+        return;
+    }
+       humanChoice = target.id
+       playRound(getHumanChoice(), getComputerChoice())
+      } )
+
 //get random choice from the computer
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * choices.length)
     return choices[randomChoice]
 }
-//get human choice from a prompt
+
 function getHumanChoice() {
-    let humanChoice = prompt("Enter rock, paper or scissors")
-    humanChoice = humanChoice.toLowerCase()
-    if( humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors" ) {
-       return humanChoice
-    }
-    else {
-        alert(`Please enter the correct input (rock, paper or scissors)`)
-        return getHumanChoice()
-    }
+   return humanChoice;
 }
-//store scores
+
 let playerScore = 0;
 let computerScore = 0;
-// make a round of the game and compare choices and increament scores
+
 function playRound(humanChoice, computerChoice) {
-    if ( humanChoice === "rock" && computerChoice === "scissors"
-       ||humanChoice === "paper" && computerChoice === "rock"
-       ||humanChoice === "scissors" && computerChoice === "paper") {
+    if ( humanChoice === "🗿" && computerChoice === "✂️"
+       ||humanChoice === "📃" && computerChoice === "🗿"
+       ||humanChoice === "✂️" && computerChoice === "📃") {
         playerScore++;
-        alert(`You choose: ${humanChoice}\nComputer choose: ${computerChoice}\nYou win this round, Score: You- ${playerScore} Computer- ${computerScore}`)
        }
     else if( humanChoice === computerChoice) {
-        alert(`You choose: ${humanChoice}\nComputer choose: ${computerChoice}\nIt's a draw, Score: You- ${playerScore} Computer- ${computerScore}`)
     }
     else {
         computerScore++
-        alert(`You choose: ${humanChoice}\nComputer choose: ${computerChoice}\nComputer wins this round, Score: You- ${playerScore} Computer- ${computerScore}`)
+    }
+    displayPlayerSelection.textContent = humanChoice;
+    displayComputerSelection.textContent = computerChoice
+    displayPlayerScore.textContent = playerScore;
+    displayComputerScore.textContent = computerScore;
+    if(playerScore === 5 || computerScore === 5) {
+        generateWinMessage()
+        reset()
     }
 }
 
-//make full game that plays 5 rounds
-
-function playGame() {
-    let start = confirm("Do you want to play rock paper and scissors?\nBest of 5 wins!")
-    if (start == false) {
-        return;
-    }
- //loop rounds 5 times   
-    for (let i = 0; i < 5; i++) {
-      playRound(getHumanChoice(), getComputerChoice())
-    }
-//compare final scores after loop ends and declare winner  
-    if(playerScore > computerScore) {
-        alert("Congrats you win!")
-    }
-    else if(playerScore === computerScore)
-    {
-        alert("It's a draw!")
+function generateWinMessage() {
+    let winMessage = document.createElement("p")
+    if(playerScore === 5) {
+        winMessage.textContent = "Congrats You win!";
     }
     else {
-        alert("Computer wins! better luck next time!")
+        winMessage.textContent = "Computer wins! better luck next time!";
     }
-
+    let displayMessage = document.querySelector("#display-selections")
+    displayMessage.innerHTML = ""
+    displayMessage.append(winMessage)
 }
 
-playGame()
+
+
+function reset() {
+    let resetBtn = document.createElement("button")
+    resetBtn.textContent = "Play again";
+    buttons.innerHTML = ""
+    buttons.append(resetBtn);
+    resetBtn.addEventListener ("click", function() {
+        location.reload();
+    })
+}
+
